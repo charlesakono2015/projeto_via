@@ -100,10 +100,10 @@ class ViaModel:
         self.buildModel(x, y)
 
 via = ViaModel()
-if not os.path.join(CURRENT_DIR, 'iris_model.pkl'):
-    via.train()
-else:
+if os.path.isfile(os.path.join(CURRENT_DIR, 'iris_model.pkl')):
     via.loadModel()
+else:
+    via.train()
 
 st.markdown("<h4 style='text-align: center;'>PROJETO VIA - MACHINE LEARNING</h4>", unsafe_allow_html=True)
 
